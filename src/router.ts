@@ -1,9 +1,10 @@
-const asyncComponent = (path) => import(path)
+import Home from './View/home/index.vue'
+// const asyncComponent = (path) => import(path)
 
 const routes = [
   {
-    path: '/',
-    component: asyncComponent('./components/layout/index.vue'),
+    path: '/', 
+    component: Home,
   },
 ]
 
