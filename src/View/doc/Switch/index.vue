@@ -1,25 +1,24 @@
 <template>
   <div>
     current is Switch
-    <Switch />
+    <Switch :defaultValue="status"
+            @input='status = $event' />
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 import Switch from '../../../components/Switch/index.vue'
 export default {
   props: [],
-  name: '',
-  data () {
-    return {
-
-    };
-  },
   components: {
     Switch
   },
-  mounted () { },
-  methods: {}
+  setup () {
+    const status = ref(false);
+
+    return { status }
+  }
 }
 </script>
 
