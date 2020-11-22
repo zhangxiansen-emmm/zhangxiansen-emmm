@@ -41,7 +41,7 @@ export default {
   }
 }
 </script>
-<style lang='less'>
+<style lang='scss'>
 @import url('./assets/iconfont.css');
 .header {
   background: #1890ff;

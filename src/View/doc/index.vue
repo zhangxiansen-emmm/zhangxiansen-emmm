@@ -21,6 +21,7 @@
     </transition>
 
     <div class='detail'>
+      <p>{{ currentTitle }}</p>
       <router-view></router-view>
     </div>
   </div>
@@ -28,6 +29,7 @@
 
 <script lang='ts'>
 import { inject, Ref } from 'vue'
+import router from '../../router'
 export default {
   setup() {
     const slideVisible = inject<Ref<Boolean>>('slideVisible')
@@ -35,12 +37,17 @@ export default {
     const toggleSlide = () => {
       slideVisible.value = !slideVisible.value
     }
+
+    // router.beforeEach((params) => {
+    //   console.log(params)
+    //   currentTitle = params.name
+    // })
     return { slideVisible }
   },
 }
 </script>
 
-<style lang='less'>
+<style lang='scss'>
 .doc {
   display: flex;
   .slide {

@@ -1,10 +1,12 @@
 <template>
   <div>
     current is Switch
+    <Switch />
   </div>
 </template>
 
 <script>
+import Switch from '../../../components/Switch/index.vue'
 export default {
   props: [],
   name: '',
@@ -13,7 +15,9 @@ export default {
 
     };
   },
-  components: {},
+  components: {
+    Switch
+  },
   mounted () { },
   methods: {}
 }

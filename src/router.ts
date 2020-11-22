@@ -13,10 +13,12 @@ const routes = [
   {
     path: '/doc',
     component: Doc,
+    name: '文档列表',
     children: [
       {
         path: 'switch',
         component: Switch,
+        name: 'switch 文档',
       },
     ],
   },
