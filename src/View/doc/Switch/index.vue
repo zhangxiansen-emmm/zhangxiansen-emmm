@@ -1,7 +1,6 @@
 <template>
-  <div class='banner'>
-    <h2> this is first ui </h2>
-    <h4> this ui is first </h4>
+  <div>
+    current is Switch
   </div>
 </template>
 
@@ -20,13 +19,5 @@ export default {
 }
 </script>
 
-<style lang='less'>
-.banner {
-  text-align: center;
-  h2 {
-    padding: 10px;
-  }
-  h4 {
-  }
-}
+<style>
 </style>
