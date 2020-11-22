@@ -1,7 +1,9 @@
 <template>
   <div>
-    <button :class='{checked:defaultValue}'
-            @mouseup='toggle'> <span></span> </button>
+    <button :class='{checked:defaultValue,disable}'
+            @mouseup='toggle'
+            :disabled='disable'> <span></span> </button>
+    
   </div>
 </template>
 
@@ -10,6 +12,10 @@ import { ref, } from 'vue'
 export default {
   props: {
     defaultValue: Boolean,
+    disable: {
+      type: Boolean,
+      default: false
+    }
   },
   setup (props, context) {
     // this Vue of the setUp is Responsive but not  Deconstruction.
@@ -18,7 +24,7 @@ export default {
     // const { defaultValue } = toRefs(props)
     // https://vue3js.cn/docs/zh/guide/composition-api-setup.html#props
     const toggle = () => {
-      context.emit('input', !props.defaultValue)
+      context.emit('update:defaultValue', !props.defaultValue)
     }
     return { toggle }
   }
@@ -38,8 +44,8 @@ button {
   background: #ccc;
   transition: 0.1s;
   span {
-    width: 20px;
-    height: 20px;
+    width: $h - 3px;
+    height: $h - 3px;
     position: absolute;
     left: 2px;
     top: 1px;
@@ -50,12 +56,16 @@ button {
   &.checked {
     background: blue;
   }
-  &:active span {
-    width: 22px;
+  &:not(.disable):active span {
+    width: $h + 2px;
   }
+
   &.checked span {
-    transform: rotate(180deg);
     left: calc(100% - #{$h2} - 2px);
+  }
+  &:active.checked span {
+    width: $h + 4px;
+    margin-left: -6px;
   }
 }
 </style>
